@@ -10,6 +10,14 @@
             bindings = <&kp>, <&kp>;
         };
 
+        del_shift_bspc: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+        };
+
         lc_aa: uc_aa { compatible = "zmk,behavior-unicode"; label = "á"; code = <0x00E1>; };
         uc_aa: uc_aa_u { compatible = "zmk,behavior-unicode"; label = "Á"; code = <0x00C1>; };
         lc_ee: uc_ee { compatible = "zmk,behavior-unicode"; label = "é"; code = <0x00E9>; };
@@ -42,7 +50,7 @@
                 &kp H &ht RGUI J &ht RCTRL K &ht RALT L &kp SQT
                 &kp Z &kp X &kp C &kp V &kp B
                 &kp N &kp M &kp COMMA &kp DOT &kp FSLH
-                &lt 2 TAB &kp ENTER &kp SPACE &lt 1 BSPC
+                &kp TAB &kp ENTER &kp SPACE &del_shift_bspc
             >;
         };
 
@@ -77,6 +85,24 @@
                 &lc_oee &uc_oee &lc_uu &uc_uu &lc_ue
                 &uc_ue &lc_uee &uc_uee &trans &trans
             >;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo-entries {
+            rs_enter: combo {
+                key-positions = <0 1 5 6>; // Example positions, adjust to your layout
+                bindings = <&kp ENTER>;
+            };
+            ei_enter: combo {
+                key-positions = <2 3 7 8>;
+                bindings = <&kp ENTER>;
+            };
+            ri_caps: combo {
+                key-positions = <0 2>; 
+                bindings = <&caps_word>;
+            };
         };
     };
 };
