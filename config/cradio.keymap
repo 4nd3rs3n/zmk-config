@@ -1,41 +1,78 @@
 / {
     behaviors {
-        ht: hold_tap {
+        // Home Row Mod Hold-Taps
+        hrml_a: hold_tap_hrml_a {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp A>, <&kp>;
+        };
+        hrml_s: hold_tap_hrml_s {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp S>, <&kp>;
+        };
+        hrml_d: hold_tap_hrml_d {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp D>, <&kp>;
+        };
+        hrml_f: hold_tap_hrml_f {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp F>, <&kp>;
         };
 
-        del_shift_bspc: hold_tap {
+        hrmr_j: hold_tap_hrmr_j {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp J>, <&kp>;
+        };
+        hrmr_k: hold_tap_hrmr_k {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp K>, <&kp>;
+        };
+        hrmr_l: hold_tap_hrmr_l {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp L>, <&kp>;
+        };
+
+        del_shift_bspc: hold_tap_del_shift {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
             bindings = <&kp BSPC>, <&kp DEL>;
         };
-
-        lc_aa: uc_aa { compatible = "zmk,behavior-unicode"; label = "á"; code = <0x00E1>; };
-        uc_aa: uc_aa_u { compatible = "zmk,behavior-unicode"; label = "Á"; code = <0x00C1>; };
-        lc_ee: uc_ee { compatible = "zmk,behavior-unicode"; label = "é"; code = <0x00E9>; };
-        uc_ee: uc_ee_u { compatible = "zmk,behavior-unicode"; label = "É"; code = <0x00C9>; };
-        lc_ii: uc_ii { compatible = "zmk,behavior-unicode"; label = "í"; code = <0x00ED>; };
-        uc_ii: uc_ii_u { compatible = "zmk,behavior-unicode"; label = "Í"; code = <0x00CD>; };
-        lc_oo: uc_oo { compatible = "zmk,behavior-unicode"; label = "ó"; code = <0x00F3>; };
-        uc_oo: uc_oo_u { compatible = "zmk,behavior-unicode"; label = "Ó"; code = <0x00D3>; };
-        lc_oe: uc_oe { compatible = "zmk,behavior-unicode"; label = "ö"; code = <0x00F6>; };
-        uc_oe: uc_oe_u { compatible = "zmk,behavior-unicode"; label = "Ö"; code = <0x00D6>; };
-        lc_oee: uc_oee { compatible = "zmk,behavior-unicode"; label = "ő"; code = <0x0151>; };
-        uc_oee: uc_oee_u { compatible = "zmk,behavior-unicode"; label = "Ő"; code = <0x0150>; };
-        lc_uu: uc_uu { compatible = "zmk,behavior-unicode"; label = "ú"; code = <0x00FA>; };
-        uc_uu: uc_uu_u { compatible = "zmk,behavior-unicode"; label = "Ú"; code = <0x00DA>; };
-        lc_ue: uc_ue { compatible = "zmk,behavior-unicode"; label = "ü"; code = <0x00FC>; };
-        uc_ue: uc_ue_u { compatible = "zmk,behavior-unicode"; label = "Ü"; code = <0x00DC>; };
-        lc_uee: uc_uee { compatible = "zmk,behavior-unicode"; label = "ű"; code = <0x0171>; };
-        uc_uee: uc_uee_u { compatible = "zmk,behavior-unicode"; label = "Ű"; code = <0x0170>; };
     };
 
     keymap {
@@ -46,8 +83,8 @@
             bindings = <
                 &kp Q &kp W &kp E &kp R &kp T
                 &kp Y &kp U &kp I &kp O &kp P
-                &ht LSHFT A &ht LALT S &ht LCTRL D &ht LGUI F &kp G
-                &kp H &ht RGUI J &ht RCTRL K &ht RALT L &kp SQT
+                &hrml_a &hrml_s &hrml_d &hrml_f &kp G
+                &kp H &hrmr_j &hrmr_k &hrmr_l &kp SQT
                 &kp Z &kp X &kp C &kp V &kp B
                 &kp N &kp M &kp COMMA &kp DOT &kp FSLH
                 &kp TAB &kp ENTER &kp SPACE &del_shift_bspc
@@ -62,7 +99,8 @@
                 &kp DEL &kp N4 &kp N5 &kp N6 &trans
                 &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI
                 &caps_word &kp N7 &kp N8 &kp N9 &kp N0
-                &trans &kp ESC &trans &trans &trans
+                &trans &trans &trans &trans &trans
+                &trans &kp ESC &trans &trans
             >;
         };
 
@@ -74,35 +112,34 @@
                 &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT
                 &kp ASTRK &kp MINUS &kp EQUAL &kp BSLH &kp GRAVE
                 &trans &trans &trans &trans &trans
+                &kp AMPS &kp UNDER &kp PLUS &kp PIPE &trans
+                &trans &trans &trans &trans &trans
             >;
         };
 
-        hun_layer {
+        tri_layer {
+            display-name = "Tri";
+            bindings = <
+                &sys_reset &trans &trans &trans &bt BT_SEL 0
+                &trans &trans &trans &trans &sys_reset
+                &bootloader &trans &trans &trans &bt BT_SEL 1
+                &trans &trans &trans &trans &bootloader
+                &trans &trans &trans &bt BT_CLR &bt BT_SEL 2
+                &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans
+            >;
+        };
+
+        hungarian_layer {
             display-name = "Hungarian";
             bindings = <
-                &lc_aa &uc_aa &lc_ee &uc_ee &lc_ii
-                &uc_ii &lc_oo &uc_oo &lc_oe &uc_oe
-                &lc_oee &uc_oee &lc_uu &uc_uu &lc_ue
-                &uc_ue &lc_uee &uc_uee &trans &trans
+                &trans &trans &trans &trans &trans
+                &trans &kp UC_UE &kp UC_UU &kp UC_UEE &kp UC_OEE
+                &kp UC_AA &LSFT_T(&trans) &trans &trans &trans
+                &trans &trans &kp UC_EE &kp UC_II &kp UC_OO
+                &trans &trans &trans &trans &kp UC_OE
+                &trans &UC_NEXT &UC_PREV &trans &trans
             >;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-        combo-entries {
-            rs_enter: combo {
-                key-positions = <0 1 5 6>; // Example positions, adjust to your layout
-                bindings = <&kp ENTER>;
-            };
-            ei_enter: combo {
-                key-positions = <2 3 7 8>;
-                bindings = <&kp ENTER>;
-            };
-            ri_caps: combo {
-                key-positions = <0 2>; 
-                bindings = <&caps_word>;
-            };
         };
     };
 };
