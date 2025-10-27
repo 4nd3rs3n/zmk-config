@@ -1,130 +1,55 @@
-keymap:
-  compatible: zmk,keymap
+/ {
+    keymap {
+        compatible = "zmk,keymap";
 
-  # --- Behaviors ---
-  behaviors:
-    # Tap-hold mods
-    - name: LCTL_A
-      type: tap_hold
-      tapping:
-        tap: KC_A
-        hold: LCTL
+        default_layer {
+            display-name = "Base Layer";
+            bindings = <
+                &kp Q      &kp W      &kp F      &kp P      &kp B
+                HRML(A, R, S, T) &kp G      &kp M      HRMR(N, E, I, O)
+                &kp Z      &kp X      &kp C      &kp D      &kp V
+                &lt 3 TAB  &lt 2 SPC  // 2 thumb keys
+            >;
+        };
 
-    - name: LSFT_R
-      type: tap_hold
-      tapping:
-        tap: KC_R
-        hold: LSFT
+        num_layer {
+            display-name = "Num Layer";
+            bindings = <
+                &kp 1 &kp 2 &kp 3 &kp 4 &kp 5
+                &kp 6 &kp 7 &kp 8 &kp 9 &kp 0
+                XXXXX &kp 0 &kp 0 &kp 0 &kp 0  // optional padding row
+                XXXXX XXXXX  // 2 thumb keys
+            >;
+        };
 
-    - name: LALT_S
-      type: tap_hold
-      tapping:
-        tap: KC_S
-        hold: LALT
+        sym_layer {
+            display-name = "Sym Layer";
+            bindings = <
+                &kp GRAVE &kp LBKT &kp RBKT &kp MINS &kp PIPE
+                &kp CARET &kp LCBR &kp RCBR &kp QUES &kp DLR
+                &kp TILD &kp PLUS &kp LBRC &kp RBRC &kp PERC
+                &kp DEL XXXXX  // 2 thumb keys
+            >;
+        };
 
-    - name: LGUI_T
-      type: tap_hold
-      tapping:
-        tap: KC_T
-        hold: LGUI
+        util_layer {
+            display-name = "Util Layer";
+            bindings = <
+                &kp WWW_FORWARD &kp HOME &kp PGUP &kp BRIU &kp VOLU
+                &kp MNXT &kp F1 &kp F2 &kp F3 &kp F4
+                &kp WWW_BACK &kp END &kp PGDN &kp BRID &kp VOLD
+                XXXXX XXXXX  // 2 thumb keys
+            >;
+        };
 
-    - name: RSFT_I
-      type: tap_hold
-      tapping:
-        tap: KC_I
-        hold: RSFT
-
-    - name: LCTL_O
-      type: tap_hold
-      tapping:
-        tap: KC_O
-        hold: LCTL
-
-    # Shifted Backspace -> Delete
-    - name: shift_backspace
-      type: tap_hold
-      tapping:
-        tap: KC_BSPC
-        hold: DEL
-
-    # Layer-tap keys
-    - name: LT_NUM
-      type: tap_hold
-      tapping:
-        tap: KC_SPC
-        hold: NUM
-
-    - name: LT_UTIL
-      type: tap_hold
-      tapping:
-        tap: KC_TAB
-        hold: UTIL
-
-    - name: LT_HUN
-      type: tap_hold
-      tapping:
-        tap: KC_ESC
-        hold: HUN
-
-  # --- Layers ---
-  layers:
-    - name: BASE
-      bindings:
-        - KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_UNDS
-        - &LCTL_A, &LSFT_R, &LALT_S, &LGUI_T, KC_G, KC_M, &LGUI_T, &LALT_S, &RSFT_I, &LCTL_O
-        - KC_Z, KC_X, KC_C, KC_D, KC_V, KC_K, KC_H, KC_COMMA, KC_DOT, KC_SLSH
-        - &LT_UTIL, &LT_NUM, &shift_backspace, &LT_HUN
-
-    - name: NUM
-      bindings:
-        - LCTL(KC_1), LSFT(KC_2), LALT(KC_3), LGUI(KC_4), KC_5, KC_6, LGUI(KC_7), LALT(KC_8), RSFT(KC_9), LCTL(KC_0)
-
-    - name: SYM
-      bindings:
-        - KC_GRV, KC_LABK, KC_RABK, KC_MINS, KC_PIPE, KC_CIRC, KC_LCBR, KC_RCBR, KC_QUES, KC_DLR
-        - KC_EXLM, KC_ASTR, KC_SLSH, KC_EQL, KC_AMPR, KC_HASH, KC_LPRN, KC_RPRN, KC_SCLN, KC_DQUO
-        - KC_TILD, KC_PLUS, KC_LBRC, KC_RBRC, KC_PERC, KC_AT, KC_COLN, KC_COMM, KC_DOT, KC_QUOT
-        - KC_DEL
-
-    - name: UTIL
-      bindings:
-        - KC_WWW_FORWARD, KC_HOME, KC_PGUP, KC_BRIU, KC_VOLU, KC_MNXT, KC_F1, KC_F2, KC_F3, KC_F4
-        - LCTL(KC_LEFT), LSFT(KC_DOWN), LALT(KC_UP), LGUI(KC_RIGHT), KC_MUTE, KC_MPLY, LGUI(KC_F5), LALT(KC_F6), RSFT(KC_F7), LCTL(KC_F8)
-        - KC_WWW_BACK, KC_END, KC_PGDN, KC_BRID, KC_VOLD, KC_MPRV, KC_F9, KC_F10, KC_F11, KC_F12
-
-    - name: HUN
-      bindings:
-        - UC(UC_UE), UC(UC_UU), UC(UC_UEE), UC(UC_OEE)
-        - UC(UC_AA), UC(UC_EE), UC(UC_II), UC(UC_OO)
-        - UC(UC_OE)
-        - UC_NEXT, UC_PREV
-
-  # --- Unicode characters ---
-  unicode:
-    LC_AA: 0x00E1
-    UC_AA: 0x00C1
-    LC_EE: 0x00E9
-    UC_EE: 0x00C9
-    LC_II: 0x00ED
-    UC_II: 0x00CD
-    LC_OO: 0x00F3
-    UC_OO: 0x00D3
-    LC_OE: 0x00F6
-    UC_OE: 0x00D6
-    LC_OEE: 0x0151
-    UC_OEE: 0x0150
-    LC_UU: 0x00FA
-    UC_UU: 0x00DA
-    LC_UE: 0x00FC
-    UC_UE: 0x00DC
-    LC_UEE: 0x0171
-    UC_UEE: 0x0170
-
-  # --- Combos ---
-  combos:
-    - keys: [LSFT(KC_R), LALT(KC_S)]
-      tap: KC_ENT
-    - keys: [LALT(KC_E), RSFT(KC_I)]
-      tap: KC_ENT
-    - keys: [LSFT(KC_R), RSFT(KC_I)]
-      tap: CAPS_WORD
+        hun_layer {
+            display-name = "Hungarian Layer";
+            bindings = <
+                &unicode UC_UE LC_UE &unicode UC_UU LC_UU &unicode UC_UEE LC_UEE &unicode UC_OEE LC_OEE &unicode UC_OO LC_OO
+                &unicode UC_AA LC_AA &unicode UC_EE LC_EE &unicode UC_II LC_II &unicode UC_OO LC_OO &unicode UC_OE LC_OE
+                XXXXX XXXXX XXXXX XXXXX &unicode UC_OE LC_OE
+                &uc_next &uc_prev  // 2 thumb keys
+            >;
+        };
+    };
+};
