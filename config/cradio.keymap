@@ -1,107 +1,130 @@
-// Copyright (c) 2022 The ZMK Contributors
-// SPDX-License-Identifier: MIT
+keymap:
+  compatible: zmk,keymap
 
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
+  # --- Behaviors ---
+  behaviors:
+    # Tap-hold mods
+    - name: LCTL_A
+      type: tap_hold
+      tapping:
+        tap: KC_A
+        hold: LCTL
 
-// Home row mods macro
-#define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
-#define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
+    - name: LSFT_R
+      type: tap_hold
+      tapping:
+        tap: KC_R
+        hold: LSFT
 
-/ {
-    behaviors {
-        ht: hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp>, <&kp>;
-        };
-    };
+    - name: LALT_S
+      type: tap_hold
+      tapping:
+        tap: KC_S
+        hold: LALT
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
+    - name: LGUI_T
+      type: tap_hold
+      tapping:
+        tap: KC_T
+        hold: LGUI
 
-    keymap {
-        compatible = "zmk,keymap";
-        default_layer {
-            display-name = "Default Layer";
-            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
-            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ' "      │
-            HRML(A,        S,         D,         F)     &kp G          &kp H      HRMR(J,        K,         L,        SQT)
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
-            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                            &lt 2 TAB   &kp ENTER     &kp SPACE  &lt 1 BSPC
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
+    - name: RSFT_I
+      type: tap_hold
+      tapping:
+        tap: KC_I
+        hold: RSFT
 
-        right_layer {
-            display-name = "Right Layer";
-            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ INSERT   │  1       │  2       │  3       │          │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │  :       │
-            &kp INS    &kp N1     &kp N2     &kp N3     &trans         &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp COLON
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ DELETE   │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  ;       │
-            &kp DEL    &kp N4     &kp N5     &kp N6     &trans         &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &kp SEMI
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ CAPS     │  7       │  8       │  9       │  0       │   │          │          │          │          │          │
-           &caps_word  &kp N7     &kp N8     &kp N9     &kp N0         &trans     &trans     &trans     &trans     &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &kp ESC        &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
+    - name: LCTL_O
+      type: tap_hold
+      tapping:
+        tap: KC_O
+        hold: LCTL
 
-        left_layer {
-            display-name = "Left Layer";
-            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │
-            &trans     &kp LBKT   &kp LBRC   &kp RBRC   &trans         &kp CARET  &kp LPAR   &kp RPAR   &kp RBKT   &kp TILDE
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
-            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &kp GRAVE
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
-            &trans     &trans     &trans     &trans     &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
+    # Shifted Backspace -> Delete
+    - name: shift_backspace
+      type: tap_hold
+      tapping:
+        tap: KC_BSPC
+        hold: DEL
 
-        tri_layer {
-            display-name = "Tri Layer";
-            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-           &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-            &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
-    };
-};
+    # Layer-tap keys
+    - name: LT_NUM
+      type: tap_hold
+      tapping:
+        tap: KC_SPC
+        hold: NUM
+
+    - name: LT_UTIL
+      type: tap_hold
+      tapping:
+        tap: KC_TAB
+        hold: UTIL
+
+    - name: LT_HUN
+      type: tap_hold
+      tapping:
+        tap: KC_ESC
+        hold: HUN
+
+  # --- Layers ---
+  layers:
+    - name: BASE
+      bindings:
+        - KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_UNDS
+        - &LCTL_A, &LSFT_R, &LALT_S, &LGUI_T, KC_G, KC_M, &LGUI_T, &LALT_S, &RSFT_I, &LCTL_O
+        - KC_Z, KC_X, KC_C, KC_D, KC_V, KC_K, KC_H, KC_COMMA, KC_DOT, KC_SLSH
+        - &LT_UTIL, &LT_NUM, &shift_backspace, &LT_HUN
+
+    - name: NUM
+      bindings:
+        - LCTL(KC_1), LSFT(KC_2), LALT(KC_3), LGUI(KC_4), KC_5, KC_6, LGUI(KC_7), LALT(KC_8), RSFT(KC_9), LCTL(KC_0)
+
+    - name: SYM
+      bindings:
+        - KC_GRV, KC_LABK, KC_RABK, KC_MINS, KC_PIPE, KC_CIRC, KC_LCBR, KC_RCBR, KC_QUES, KC_DLR
+        - KC_EXLM, KC_ASTR, KC_SLSH, KC_EQL, KC_AMPR, KC_HASH, KC_LPRN, KC_RPRN, KC_SCLN, KC_DQUO
+        - KC_TILD, KC_PLUS, KC_LBRC, KC_RBRC, KC_PERC, KC_AT, KC_COLN, KC_COMM, KC_DOT, KC_QUOT
+        - KC_DEL
+
+    - name: UTIL
+      bindings:
+        - KC_WWW_FORWARD, KC_HOME, KC_PGUP, KC_BRIU, KC_VOLU, KC_MNXT, KC_F1, KC_F2, KC_F3, KC_F4
+        - LCTL(KC_LEFT), LSFT(KC_DOWN), LALT(KC_UP), LGUI(KC_RIGHT), KC_MUTE, KC_MPLY, LGUI(KC_F5), LALT(KC_F6), RSFT(KC_F7), LCTL(KC_F8)
+        - KC_WWW_BACK, KC_END, KC_PGDN, KC_BRID, KC_VOLD, KC_MPRV, KC_F9, KC_F10, KC_F11, KC_F12
+
+    - name: HUN
+      bindings:
+        - UC(UC_UE), UC(UC_UU), UC(UC_UEE), UC(UC_OEE)
+        - UC(UC_AA), UC(UC_EE), UC(UC_II), UC(UC_OO)
+        - UC(UC_OE)
+        - UC_NEXT, UC_PREV
+
+  # --- Unicode characters ---
+  unicode:
+    LC_AA: 0x00E1
+    UC_AA: 0x00C1
+    LC_EE: 0x00E9
+    UC_EE: 0x00C9
+    LC_II: 0x00ED
+    UC_II: 0x00CD
+    LC_OO: 0x00F3
+    UC_OO: 0x00D3
+    LC_OE: 0x00F6
+    UC_OE: 0x00D6
+    LC_OEE: 0x0151
+    UC_OEE: 0x0150
+    LC_UU: 0x00FA
+    UC_UU: 0x00DA
+    LC_UE: 0x00FC
+    UC_UE: 0x00DC
+    LC_UEE: 0x0171
+    UC_UEE: 0x0170
+
+  # --- Combos ---
+  combos:
+    - keys: [LSFT(KC_R), LALT(KC_S)]
+      tap: KC_ENT
+    - keys: [LALT(KC_E), RSFT(KC_I)]
+      tap: KC_ENT
+    - keys: [LSFT(KC_R), RSFT(KC_I)]
+      tap: CAPS_WORD
