@@ -1,77 +1,71 @@
 / {
     behaviors {
-        // Home Row Mod Hold-Taps
-        hrml_a: hold_tap_hrml_a {
+        // Home row mods for left hand
+        hrml_a: hrml_a {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
-            bindings = <&kp A>, <&kp>;
-        };
-        hrml_s: hold_tap_hrml_s {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp S>, <&kp>;
-        };
-        hrml_d: hold_tap_hrml_d {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp D>, <&kp>;
-        };
-        hrml_f: hold_tap_hrml_f {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp F>, <&kp>;
+            bindings = <&kp A>, <&kp LSFT>;
         };
 
-        hrmr_j: hold_tap_hrmr_j {
+        hrml_r: hrml_r {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp J>, <&kp>;
-        };
-        hrmr_k: hold_tap_hrmr_k {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp K>, <&kp>;
-        };
-        hrmr_l: hold_tap_hrmr_l {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp L>, <&kp>;
+            bindings = <&kp R>, <&kp LALT>;
         };
 
-        del_shift_bspc: hold_tap_del_shift {
+        hrml_s: hrml_s {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
-            bindings = <&kp BSPC>, <&kp DEL>;
+            bindings = <&kp S>, <&kp LCTRL>;
+        };
+
+        hrml_t: hrml_t {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            bindings = <&kp T>, <&kp LGUI>;
+        };
+
+        // Home row mods for right hand
+        hrmr_j: hrmr_j {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            bindings = <&kp J>, <&kp RGUI>;
+        };
+
+        hrmr_k: hrmr_k {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            bindings = <&kp K>, <&kp RCTRL>;
+        };
+
+        hrmr_l: hrmr_l {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            bindings = <&kp L>, <&kp RALT>;
+        };
+
+        hrmr_sqt: hrmr_sqt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            bindings = <&kp SQT>, <&kp RSHFT>;
         };
     };
 
@@ -79,66 +73,54 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "Base";
+            display-name = "Base Layer";
             bindings = <
+                // Left hand: 3x5
                 &kp Q &kp W &kp E &kp R &kp T
-                &kp Y &kp U &kp I &kp O &kp P
-                &hrml_a &hrml_s &hrml_d &hrml_f &kp G
-                &kp H &hrmr_j &hrmr_k &hrmr_l &kp SQT
+                &hrml_a &hrml_r &hrml_s &hrml_t &kp G
                 &kp Z &kp X &kp C &kp V &kp B
+                // Right hand: 3x5
+                &kp Y &kp U &kp I &kp O &kp P
+                &kp H &hrmr_j &hrmr_k &hrmr_l &hrmr_sqt
                 &kp N &kp M &kp COMMA &kp DOT &kp FSLH
-                &kp TAB &kp ENTER &kp SPACE &del_shift_bspc
+                // Thumbs
+                &lt 2 &kp SPACE &kp ENTER &lt 1
             >;
         };
 
+        // Right layer example
         right_layer {
-            display-name = "Right";
+            display-name = "Right Layer";
             bindings = <
                 &kp INS &kp N1 &kp N2 &kp N3 &trans
                 &kp HOME &kp PG_DN &kp PG_UP &kp END &kp COLON
                 &kp DEL &kp N4 &kp N5 &kp N6 &trans
                 &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI
-                &caps_word &kp N7 &kp N8 &kp N9 &kp N0
-                &trans &trans &trans &trans &trans
                 &trans &kp ESC &trans &trans
             >;
         };
 
+        // Left layer example
         left_layer {
-            display-name = "Left";
+            display-name = "Left Layer";
             bindings = <
                 &trans &kp LBKT &kp LBRC &kp RBRC &trans
                 &kp CARET &kp LPAR &kp RPAR &kp RBKT &kp TILDE
-                &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT
-                &kp ASTRK &kp MINUS &kp EQUAL &kp BSLH &kp GRAVE
                 &trans &trans &trans &trans &trans
                 &kp AMPS &kp UNDER &kp PLUS &kp PIPE &trans
-                &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans
             >;
         };
 
         tri_layer {
-            display-name = "Tri";
+            display-name = "Tri Layer";
             bindings = <
                 &sys_reset &trans &trans &trans &bt BT_SEL 0
                 &trans &trans &trans &trans &sys_reset
                 &bootloader &trans &trans &trans &bt BT_SEL 1
                 &trans &trans &trans &trans &bootloader
-                &trans &trans &trans &bt BT_CLR &bt BT_SEL 2
-                &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
-            >;
-        };
-
-        hungarian_layer {
-            display-name = "Hungarian";
-            bindings = <
-                &trans &trans &trans &trans &trans
-                &trans &kp UC_UE &kp UC_UU &kp UC_UEE &kp UC_OEE
-                &kp UC_AA &LSFT_T(&trans) &trans &trans &trans
-                &trans &trans &kp UC_EE &kp UC_II &kp UC_OO
-                &trans &trans &trans &trans &kp UC_OE
-                &trans &UC_NEXT &UC_PREV &trans &trans
+                &trans &trans &bt BT_CLR &bt BT_SEL 2 &trans
+                &trans &trans &trans &trans
             >;
         };
     };
