@@ -6,49 +6,50 @@
             display-name = "Base Layer";
             bindings = <
                 &kp Q      &kp W      &kp F      &kp P      &kp B
-                HRML(A, R, S, T) &kp G      &kp M      HRMR(N, E, I, O)
+                &ht LSHFT A &ht LALT R &ht LCTRL S &ht LGUI T &kp G
+                &kp M      &ht RGUI N &ht RCTRL E &ht RALT I &ht RSHFT O
                 &kp Z      &kp X      &kp C      &kp D      &kp V
-                &lt 3 TAB  &lt 2 SPC  // 2 thumb keys
+                &lt(3, TAB) &lt(1, BSPC)
             >;
         };
 
         num_layer {
             display-name = "Num Layer";
             bindings = <
-                &kp 1 &kp 2 &kp 3 &kp 4 &kp 5
-                &kp 6 &kp 7 &kp 8 &kp 9 &kp 0
-                XXXXX &kp 0 &kp 0 &kp 0 &kp 0  // optional padding row
-                XXXXX XXXXX  // 2 thumb keys
+                &kp 1      &kp 2      &kp 3      &kp 4      &kp 5
+                &kp 6      &kp 7      &kp 8      &kp 9      &kp 0
+                &kp N1     &kp N2     &kp N3     &kp N4     &kp N5
+                &kp N6     &kp N7
             >;
         };
 
         sym_layer {
             display-name = "Sym Layer";
             bindings = <
-                &kp GRAVE &kp LBKT &kp RBKT &kp MINS &kp PIPE
-                &kp CARET &kp LCBR &kp RCBR &kp QUES &kp DLR
-                &kp TILD &kp PLUS &kp LBRC &kp RBRC &kp PERC
-                &kp DEL XXXXX  // 2 thumb keys
+                &kp GRV    &kp LBKT   &kp RBKT   &kp MINS   &kp PIPE
+                &kp CIRC   &kp LCBR   &kp RCBR   &kp QUES   &kp DLR
+                &kp EXCL   &kp ASTR   &kp SLSH   &kp EQL    &kp AMPR
+                &kp HASH   &kp PLUS
             >;
         };
 
         util_layer {
             display-name = "Util Layer";
             bindings = <
-                &kp WWW_FORWARD &kp HOME &kp PGUP &kp BRIU &kp VOLU
-                &kp MNXT &kp F1 &kp F2 &kp F3 &kp F4
-                &kp WWW_BACK &kp END &kp PGDN &kp BRID &kp VOLD
-                XXXXX XXXXX  // 2 thumb keys
+                &kp HOME   &kp PGUP   &kp PGDN   &kp END    &kp VOLU
+                &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp VOLD
+                &kp MUTE   &kp MPLY   &kp MPRV   &kp MNXT   &kp BRIU
+                &kp BRID   &kp ESC
             >;
         };
 
         hun_layer {
             display-name = "Hungarian Layer";
             bindings = <
-                &unicode UC_UE LC_UE &unicode UC_UU LC_UU &unicode UC_UEE LC_UEE &unicode UC_OEE LC_OEE &unicode UC_OO LC_OO
-                &unicode UC_AA LC_AA &unicode UC_EE LC_EE &unicode UC_II LC_II &unicode UC_OO LC_OO &unicode UC_OE LC_OE
-                XXXXX XXXXX XXXXX XXXXX &unicode UC_OE LC_OE
-                &uc_next &uc_prev  // 2 thumb keys
+                &unicode 0x00DC  &unicode 0x00DA  &unicode 0x0170  &unicode 0x0150  &unicode 0x00D6
+                &unicode 0x00E1  &unicode 0x00E9  &unicode 0x00ED  &unicode 0x00F3  &unicode 0x00F6
+                &unicode 0x0151  &unicode 0x00FA  &unicode 0x00FC  &unicode 0x0171  &unicode 0x00F6
+                &kp TAB       &kp BSPC
             >;
         };
     };
