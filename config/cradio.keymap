@@ -1,22 +1,34 @@
 / {
     behaviors {
-        // Home row mods (left hand)
-        ht_lshft: ht_lshft { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <220>; bindings = <&kp A>, <&kp LSFT>; };
-        ht_lalt:  ht_lalt  { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <220>; bindings = <&kp S>, <&kp LALT>; };
-        ht_lctrl: ht_lctrl { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <220>; bindings = <&kp D>, <&kp LCTRL>; };
-        ht_lgui:  ht_lgui  { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <220>; bindings = <&kp F>, <&kp LGUI>; };
+        ht: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp>, <&kp>;
+        };
 
-        // Home row mods (right hand)
-        ht_rgui:  ht_rgui  { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <220>; bindings = <&kp J>, <&kp RGUI>; };
-        ht_rctrl: ht_rctrl { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <220>; bindings = <&kp K>, <&kp RCTRL>; };
-        ht_ralt:  ht_ralt  { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <220>; bindings = <&kp L>, <&kp RALT>; };
-        ht_rshft: ht_rshft { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <220>; bindings = <&kp SQT>, <&kp RSHFT>; };
-
-        // Thumb layer-taps
-        lt_space: lt_space { compatible = "zmk,behavior-layer-tap"; #binding-cells = <2>; tapping-term-ms = <200>; bindings = <&kp SPACE>, <1>; };
-        lt_bspc:  lt_bspc  { compatible = "zmk,behavior-layer-tap"; #binding-cells = <2>; tapping-term-ms = <200>; bindings = <&kp BSPC>, <2>; };
-        lt_tab:   lt_tab   { compatible = "zmk,behavior-layer-tap"; #binding-cells = <2>; tapping-term-ms = <200>; bindings = <&kp TAB>, <3>; };
-        lt_esc:   lt_esc   { compatible = "zmk,behavior-layer-tap"; #binding-cells = <2>; tapping-term-ms = <200>; bindings = <&kp ESC>, <4>; };
+        // Hungarian Unicode
+        lc_aa: uc_aa { compatible = "zmk,behavior-unicode"; label = "á"; code = <0x00E1>; };
+        uc_aa: uc_aa_u { compatible = "zmk,behavior-unicode"; label = "Á"; code = <0x00C1>; };
+        lc_ee: uc_ee { compatible = "zmk,behavior-unicode"; label = "é"; code = <0x00E9>; };
+        uc_ee: uc_ee_u { compatible = "zmk,behavior-unicode"; label = "É"; code = <0x00C9>; };
+        lc_ii: uc_ii { compatible = "zmk,behavior-unicode"; label = "í"; code = <0x00ED>; };
+        uc_ii: uc_ii_u { compatible = "zmk,behavior-unicode"; label = "Í"; code = <0x00CD>; };
+        lc_oo: uc_oo { compatible = "zmk,behavior-unicode"; label = "ó"; code = <0x00F3>; };
+        uc_oo: uc_oo_u { compatible = "zmk,behavior-unicode"; label = "Ó"; code = <0x00D3>; };
+        lc_oe: uc_oe { compatible = "zmk,behavior-unicode"; label = "ö"; code = <0x00F6>; };
+        uc_oe: uc_oe_u { compatible = "zmk,behavior-unicode"; label = "Ö"; code = <0x00D6>; };
+        lc_oee: uc_oee { compatible = "zmk,behavior-unicode"; label = "ő"; code = <0x0151>; };
+        uc_oee: uc_oee_u { compatible = "zmk,behavior-unicode"; label = "Ő"; code = <0x0150>; };
+        lc_uu: uc_uu { compatible = "zmk,behavior-unicode"; label = "ú"; code = <0x00FA>; };
+        uc_uu: uc_uu_u { compatible = "zmk,behavior-unicode"; label = "Ú"; code = <0x00DA>; };
+        lc_ue: uc_ue { compatible = "zmk,behavior-unicode"; label = "ü"; code = <0x00FC>; };
+        uc_ue: uc_ue_u { compatible = "zmk,behavior-unicode"; label = "Ü"; code = <0x00DC>; };
+        lc_uee: uc_uee { compatible = "zmk,behavior-unicode"; label = "ű"; code = <0x0171>; };
+        uc_uee: uc_uee_u { compatible = "zmk,behavior-unicode"; label = "Ű"; code = <0x0170>; };
     };
 
     keymap {
@@ -25,78 +37,46 @@
         default_layer {
             display-name = "Base";
             bindings = <
-                // Left hand
                 &kp Q      &kp W      &kp E      &kp R      &kp T
-                &ht_lshft  &ht_lalt  &ht_lctrl  &ht_lgui  &kp G
-                &kp Z      &kp X      &kp C      &kp V      &kp B
-                &lt_space
-
-                // Right hand
                 &kp Y      &kp U      &kp I      &kp O      &kp P
-                &ht_rgui  &ht_rctrl  &ht_ralt  &ht_rshft  &kp H
+                &ht LSHFT A &ht LALT S &ht LCTRL D &ht LGUI F &kp G
+                &kp H      &ht RGUI J &ht RCTRL K &ht RALT L &kp SQT
+                &kp Z      &kp X      &kp C      &kp V      &kp B
                 &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
-                &lt_bspc
+                &lt 2 TAB  &kp ENTER  &kp SPACE  &lt 1 BSPC
             >;
         };
 
-        // NUM Layer: numbers on home row
-        layer_num {
-            display-name = "NUM";
+        right_layer {
+            display-name = "Right";
             bindings = <
-                &kp 1      &kp 2      &kp 3      &kp 4      &kp 5
-                &kp 6      &kp 7      &kp 8      &kp 9      &kp 0
-                &trans     &trans     &trans     &trans     &trans
-                &trans
-
-                &trans     &trans     &trans     &trans     &trans
-                &trans     &trans     &trans     &trans     &trans
-                &trans     &trans     &trans     &trans     &trans
-                &trans
+                &kp INS   &kp N1    &kp N2    &kp N3    &trans
+                &kp HOME  &kp PG_DN &kp PG_UP &kp END   &kp COLON
+                &kp DEL   &kp N4    &kp N5    &kp N6    &trans
+                &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp SEMI
+                &caps_word &kp N7   &kp N8    &kp N9    &kp N0
+                &trans    &kp ESC   &trans    &trans   &trans
             >;
         };
 
-        // SYM Layer: symbols
-        layer_sym {
-            display-name = "SYM";
+        left_layer {
+            display-name = "Left";
             bindings = <
-                &kp GRAVE &kp LBKT &kp RBKT &kp MINS &kp PIPE
-                &kp CIRC  &kp LCBR &kp RCBR &kp QUES &kp DLR
-                &kp TILD  &kp PLUS &kp LBRC &kp RBRC &kp PERC
-                &kp AT
-
-                &trans &trans &trans &kp DEL &trans
+                &trans  &kp LBKT &kp LBRC &kp RBRC &trans
+                &kp CARET &kp LPAR &kp RPAR &kp RBKT &kp TILDE
+                &kp EXCL  &kp AT   &kp HASH &kp DLLR &kp PRCNT
+                &kp ASTRK &kp MINUS &kp EQUAL &kp BSLH &kp GRAVE
                 &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
-                &trans
             >;
         };
 
-        // UTIL Layer: arrows + media + function keys
-        layer_util {
-            display-name = "UTIL";
+        hun_layer {
+            display-name = "Hungarian";
             bindings = <
-                &kp WWW_FORWARD &kp HOME &kp PGUP &kp BRIU &kp VOLU
-                &kp MNXT &kp F1 &kp F2 &kp F3 &kp F4
-                &kp WWW_BACK &kp END &kp PGDN &kp BRID &kp VOLD
-                &kp MPRV
-
-                &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans
-                &trans
-            >;
-        };
-
-        // HUN Layer: Hungarian characters
-        layer_hun {
-            display-name = "HUN";
-            bindings = <
-                &trans &trans &trans &trans &trans
-                &trans UP(LC_UE, UC_UE) UP(LC_UU, UC_UU) UP(LC_UEE, UC_UEE) UP(LC_OEE, UC_OEE)
-                &trans UP(LC_AA, UC_AA) &trans &trans &trans &trans
-                &trans &trans UP(LC_EE, UC_EE) UP(LC_II, UC_II) UP(LC_OO, UC_OO) &trans
-                &trans &trans &trans &trans UP(LC_OE, UC_OE) &trans
-                &trans UC_NEXT UC_PREV &trans &trans &trans
+                &lc_aa &uc_aa &lc_ee &uc_ee &lc_ii
+                &uc_ii &lc_oo &uc_oo &lc_oe &uc_oe
+                &lc_oee &uc_oee &lc_uu &uc_uu &lc_ue
+                &uc_ue &lc_uee &uc_uee &trans &trans
             >;
         };
     };
