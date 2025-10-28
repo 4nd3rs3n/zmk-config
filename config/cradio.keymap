@@ -127,7 +127,7 @@ prog_layer {
             display-name = "Prog Layer";
             bindings = <
         
-            &btldr_h 0 &none &none &none &out OUT_USB   &bt BT_CLR &none &none &none &btldr_h 0
+            &btldr_h 0 0 &none &none &none &out OUT_USB   &bt BT_CLR &none &none &none &btldr_h 0 0
        
       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &bt BT_DISC 4 &bt BT_DISC 3 &bt BT_DISC 2 &bt BT_DISC 1 &bt BT_DISC 0
        
