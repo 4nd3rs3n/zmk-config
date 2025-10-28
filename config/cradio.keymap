@@ -28,7 +28,7 @@
         };
         lt_bspc_del: layer_tap_backspace_delete {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <1>;
             flavor = "balanced";
             tapping-term-ms = <220>;
             bindings = <&mo>, <&bspc_del>;
