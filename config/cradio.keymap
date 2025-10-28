@@ -50,7 +50,7 @@
         
             &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans
        
-                       HRML(N1, N2, N3, N4) N5   &kp N6, HRMR(N7, N8, N9, N0)
+                       HRML(N1, N2, N3, N4) N5   &kp N6 HRMR(N7, N8, N9, N0)
        
     	    &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans
         
