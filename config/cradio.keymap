@@ -22,6 +22,21 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_enter_left {
+            timeout-ms = <25>;
+            key-positions = <11 12>;
+            bindings = <&kp ENTER>;
+        };
+        compatible = "zmk,combos";
+        combo_enter_right {
+            timeout-ms = <25>;
+            key-positions = <17 18>;
+            bindings = <&kp ENTER>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
         base_layer {
