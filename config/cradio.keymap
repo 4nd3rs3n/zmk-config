@@ -1,71 +1,48 @@
 / {
     behaviors {
-        // Home row mods for left hand
-        hrml_a: hrml_a {
+        // Home row mods left
+        hrml: hrml {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
-            bindings = <&kp A>, <&kp LSFT>;
+            bindings = <&kp>, <&kp>;
         };
 
-        hrml_r: hrml_r {
+        // Home row mods right
+        hrmr: hrmr {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
-            bindings = <&kp R>, <&kp LALT>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            bindings = <&kp>, <&kp>;
         };
 
-        hrml_s: hrml_s {
-            compatible = "zmk,behavior-hold-tap";
+        // Thumb layer-taps
+        lt1: lt1 {
+            compatible = "zmk,behavior-layer-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            bindings = <&kp S>, <&kp LCTRL>;
+            tapping-term-ms = <200>;
+            bindings = <1 &kp BSPC>;
         };
 
-        hrml_t: hrml_t {
-            compatible = "zmk,behavior-hold-tap";
+        lt2: lt2 {
+            compatible = "zmk,behavior-layer-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            bindings = <&kp T>, <&kp LGUI>;
+            tapping-term-ms = <200>;
+            bindings = <2 &kp SPACE>;
         };
+    };
 
-        // Home row mods for right hand
-        hrmr_j: hrmr_j {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            bindings = <&kp J>, <&kp RGUI>;
-        };
-
-        hrmr_k: hrmr_k {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            bindings = <&kp K>, <&kp RCTRL>;
-        };
-
-        hrmr_l: hrmr_l {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            bindings = <&kp L>, <&kp RALT>;
-        };
-
-        hrmr_sqt: hrmr_sqt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            bindings = <&kp SQT>, <&kp RSHFT>;
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 
@@ -75,20 +52,21 @@
         default_layer {
             display-name = "Base Layer";
             bindings = <
-                // Left hand: 3x5
+                // Left hand
                 &kp Q &kp W &kp E &kp R &kp T
-                &hrml_a &hrml_r &hrml_s &hrml_t &kp G
+                &hrml A &hrml S &hrml D &hrml F &kp G
                 &kp Z &kp X &kp C &kp V &kp B
-                // Right hand: 3x5
+
+                // Right hand
                 &kp Y &kp U &kp I &kp O &kp P
-                &kp H &hrmr_j &hrmr_k &hrmr_l &hrmr_sqt
+                &kp H &hrmr J &hrmr K &hrmr L &kp SQT
                 &kp N &kp M &kp COMMA &kp DOT &kp FSLH
+
                 // Thumbs
-                &lt 2 &kp SPACE &kp ENTER &lt 1
+                &lt2 &kp ENTER &kp SPACE &lt1
             >;
         };
 
-        // Right layer example
         right_layer {
             display-name = "Right Layer";
             bindings = <
@@ -100,7 +78,6 @@
             >;
         };
 
-        // Left layer example
         left_layer {
             display-name = "Left Layer";
             bindings = <
@@ -119,7 +96,8 @@
                 &trans &trans &trans &trans &sys_reset
                 &bootloader &trans &trans &trans &bt BT_SEL 1
                 &trans &trans &trans &trans &bootloader
-                &trans &trans &bt BT_CLR &bt BT_SEL 2 &trans
+                &trans &trans &trans &bt BT_CLR &bt BT_SEL 2
+                &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans
             >;
         };
