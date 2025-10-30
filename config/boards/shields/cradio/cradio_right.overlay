@@ -9,3 +9,11 @@
 &default_transform {
     col-offset = <17>;
 };
+
+battery: battery {
+    compatible = "zmk,battery";
+    adc = <&adc 2 0>;
+    scale = <6>;
+    min_voltage = <3000>;
+    max_voltage = <4200>;
+};
