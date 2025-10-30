@@ -9,8 +9,14 @@
 };
 
 &vbatt {
-    compatible = "zephyr,battery";
+    compatible = "zmk,battery-voltage-divided";
     status = "okay";
     io-channels = <&adc 0>;
-    divider-microvolt = <500000>;
+
+    // Voltage divider mapping (adjust as we fine-tune)
+    division-microvolt = <12000>;
+
+    // LiPo battery range
+    full-millivolts = <4200>;
+    discharge-millivolts = <3300>;
 };
