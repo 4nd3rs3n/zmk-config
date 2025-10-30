@@ -9,11 +9,3 @@
 &default_transform {
     col-offset = <17>;
 };
-
-/battery {
-    compatible = "zmk,battery";
-    adc = <&adc 2 0>;       // ADC node on nice!nano clones
-    scale = <2>;             // adjust according to your resistor divider
-    min_voltage = <3000>;    // 0% battery in mV
-    max_voltage = <4200>;    // 100% battery in mV
-};
