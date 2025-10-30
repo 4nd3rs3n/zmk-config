@@ -7,8 +7,9 @@
 #include "cradio.dtsi"
 
 &vbatt {
-    output-ohms = <800000>;         // bottom resistor (ADC → GND), keep as-is
-    full-ohms = <10000000>;          // scale factor ~9.95 → full-ohms = output-ohms * scale / (1 - 1/scale)
+    output-ohms = <806000>;      // R2 (bottom)
+    full-ohms   = <7657000>;     // R1 + R2 (top + bottom)
 };
+
 
 
