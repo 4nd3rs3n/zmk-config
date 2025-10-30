@@ -9,8 +9,6 @@
 &vbatt {
     output-ohms = <806000>;         // bottom resistor (ADC → GND), keep as-is
     full-ohms = <7990000>;          // scale factor ~9.95 → full-ohms = output-ohms * scale / (1 - 1/scale)
-    min_voltage = <3000>;           // 0%
-    max_voltage = <4200>;           // 100%
 };
 
 
