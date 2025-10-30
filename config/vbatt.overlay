@@ -1,0 +1,16 @@
+/ {
+    aliases {
+        vbatt = &vbatt;
+    };
+};
+
+&adc {
+    status = "okay";
+};
+
+&vbatt {
+    compatible = "zephyr,battery";
+    status = "okay";
+    io-channels = <&adc 0>;
+    divider-microvolt = <500000>;
+};
