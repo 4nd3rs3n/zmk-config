@@ -13,8 +13,8 @@
     status = "okay";
     io-channels = <&adc 0>;
 
-    // Voltage divider mapping (adjust as we fine-tune)
-    division-microvolt = <12000>;
+    // Fine-tuned for your Tenstar clone
+    division-microvolt = <6620>;
 
     // LiPo battery range
     full-millivolts = <4200>;
