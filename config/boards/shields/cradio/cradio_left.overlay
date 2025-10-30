@@ -6,10 +6,8 @@
 
 #include "cradio.dtsi"
 
-battery: battery {
-    compatible = "zmk,battery";
-    adc = <&adc 2 0>;
-    scale = <6>;
-    min_voltage = <3000>;
-    max_voltage = <4200>;
+&vbatt {
+    output-ohms = <200000>;       // bottom resistor (ADC → GND)
+    full-ohms = <1300000>;        // R1 + R2
 };
+
