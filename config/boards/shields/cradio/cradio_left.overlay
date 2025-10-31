@@ -6,4 +6,7 @@
 
 #include "cradio.dtsi"
 
-
+&vbatt {
+    output-ohms = <806000>;      // R2 (bottom)
+    full-ohms   = <7657000>;     // R1 + R2 (top + bottom)
+};
