@@ -12,8 +12,9 @@
 
 &vbatt {
     output-ohms = <806000>;
-    full-ohms   = <8988094>;  // Adjusted for right board (4.2 V -> 100%)
+    full-ohms   = <9378881>;   // right half — adjusted so ~361 mV -> ~4200 mV (100%)
 };
+
 
 
 
