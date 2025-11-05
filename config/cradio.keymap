@@ -33,11 +33,29 @@
             tapping-term-ms = <220>;
             bindings = <&mo>, <&bspc_del>;
 	};
-	tdh: tap_dance_hold {
+	tdh_llc: tap_dance_hold_left_lctrl {
             compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&ht>, <&kp>;
+            bindings = <&ht LCTRL LEFT>, <&kp LEFT>;
+        };
+	tdh_dls: tap_dance_hold_down_lshft {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&ht LSHFT DOWN>, <&kp DOWN>;
+        };
+	tdh_ula: tap_dance_hold_up_lalt {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&ht LALT UP>, <&kp UP>;
+        };
+	tdh_rlg: tap_dance_hold_right_lgui {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&ht LGUI RIGHT>, <&kp RIGHT>;
         };
         btldr_h: bootloader_hold {
             compatible = "zmk,behavior-hold-tap";
@@ -121,7 +139,7 @@
         
  &none &kp HOME &kp PG_UP &kp C_BRI_UP &kp C_VOL_UP     &kp C_NEXT &kp F1 &kp F2 &kp F3 &kp F4
 
-      &tdh LCTRL LEFT &tdh LSHFT DOWN &tdh LALT UP &tdh LGUI RIGHT &kp C_MUTE     &kp C_PP &ht RGUI F5 &ht RALT F6 &ht RSHFT F7 &ht RCTRL F8
+      &tdh_llc &tdh_dls &tdh_ula &tdh_rlg &kp C_MUTE     &kp C_PP &ht RGUI F5 &ht RALT F6 &ht RSHFT F7 &ht RCTRL F8
 
   &none &kp END &kp PG_DN &kp C_BRI_DN &kp C_VOL_DN     &kp C_PREV &kp F9 &kp F10 &kp F11 &kp F12
 
