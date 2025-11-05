@@ -37,7 +37,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            bindings = <&ht ${0} ${1}>, <&kp ${1}>;
+            bindings = <&ht>, <&kp>;
         };
         btldr_h: bootloader_hold {
             compatible = "zmk,behavior-hold-tap";
