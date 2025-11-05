@@ -36,25 +36,25 @@
 	tdh_llc: tap_dance_hold_left_lctrl {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <200>;
             bindings = <&ht LCTRL LEFT>, <&kp LEFT>;
         };
 	tdh_dls: tap_dance_hold_down_lshft {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <250>;
             bindings = <&ht LSHFT DOWN>, <&kp DOWN>;
         };
 	tdh_ula: tap_dance_hold_up_lalt {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <200>;
             bindings = <&ht LALT UP>, <&kp UP>;
         };
 	tdh_rlg: tap_dance_hold_right_lgui {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <200>;
             bindings = <&ht LGUI RIGHT>, <&kp RIGHT>;
         };
         btldr_h: bootloader_hold {
