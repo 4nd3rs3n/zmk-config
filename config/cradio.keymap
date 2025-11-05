@@ -32,6 +32,12 @@
             flavor = "balanced";
             tapping-term-ms = <220>;
             bindings = <&mo>, <&bspc_del>;
+	};
+	tthd: triple_tap_hold_delete {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lt_bspc_del 1 0>, <&lt_bspc_del 1 0>, <&bspc_del>;
         };
         btldr_h: bootloader_hold {
             compatible = "zmk,behavior-hold-tap";
@@ -76,7 +82,7 @@
            
             &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp BACKSLASH
        
-                                         &lt 3 TAB  &lt 2 SPACE        &lt_bspc_del 1 0  &lt 4 ESC
+                                         &lt 3 TAB  &lt 2 SPACE        &tthd  &lt 4 ESC
         
             >;
         };
@@ -91,7 +97,7 @@
        
     	    &none &none &none &none &none   &none &none &none &none &none
         
-                                         &lt 3 TAB  &lt 2 SPACE        &lt_bspc_del 1 0  &lt 4 ESC
+                                         &lt 3 TAB  &lt 2 SPACE        &tthd  &lt 4 ESC
             >;
         };
 
@@ -105,7 +111,7 @@
 
  &kp TILDE &kp PLUS &kp LBKT &kp RBKT &kp PRCNT     &kp AT &kp COLON &kp COMMA &kp DOT &kp SQT
 
-                                         &lt 3 TAB  &lt 2 SPACE        &lt_bspc_del 1 0  &lt 4 ESC
+                                         &lt 3 TAB  &lt 2 SPACE        &tthd  &lt 4 ESC
             >;
         };
 
@@ -119,7 +125,7 @@
 
   &none &kp END &kp PG_DN &kp C_BRI_DN &kp C_VOL_DN     &kp C_PREV &kp F9 &kp F10 &kp F11 &kp F12
 
-                                         &lt 3 TAB  &lt 2 SPACE        &lt_bspc_del 1 0  &lt 4 ESC
+                                         &lt 3 TAB  &lt 2 SPACE        &tthd  &lt 4 ESC
             >;
         };
 
@@ -133,7 +139,7 @@ prog_layer {
        
     	    &none &none &none &none &out OUT_BLE   &bt BT_CLR_ALL &none &none &none &none
         
-                                         &lt 3 TAB  &lt 2 SPACE        &lt_bspc_del 1 0  &lt 4 ESC
+                                         &lt 3 TAB  &lt 2 SPACE        &tthd  &lt 4 ESC
             >;
         };
     };
