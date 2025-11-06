@@ -111,11 +111,11 @@
         
             &none &none &none &none &none   &none &none &none &none &none
        
-                   HRML(N1, N2, N3, N4) &kp N5   &kp N6 HRMR(N7, N8, N9, N0)
+              HRML(N1, N2, N3, N4) &kp N5   &kp N6 HRMR(N7, N8, N9, N0)
        
     	    &none &none &none &none &none   &none &none &none &none &none
         
-                                         &lt 3 TAB  &lt 2 SPACE        &none  &lt 4 ESC
+                   &lt 3 TAB  &lt 2 SPACE   &none  &lt 4 ESC
             >;
         };
 
@@ -123,13 +123,13 @@
             display-name = "Sym Layer";
             bindings = <
         
- &kp GRAVE &kp LT &kp GT &kp MINUS &kp PIPE         &kp CARET &kp LBRC &kp RBRC &kp QUESTION &kp DOLLAR
+    &kp GRAVE &kp LT &kp GT &kp MINUS &kp PIPE     &kp CARET &kp LBRC &kp RBRC &kp QUESTION &kp DOLLAR
     
- HRML(EXCL, STAR, FSLH, EQUAL) &kp AMPS      &kp HASH HRMR(LPAR, RPAR, SEMI, DQT)
+        HRML(EXCL, STAR, FSLH, EQUAL) &kp AMPS     &kp HASH HRMR(LPAR, RPAR, SEMI, DQT)
 
- &kp TILDE &kp PLUS &kp LBKT &kp RBKT &kp PRCNT     &kp AT &kp COLON &kp COMMA &kp DOT &kp SQT
-
-                                         &lt 3 TAB  &lt 2 SPACE        &bspc_del  &lt 4 ESC
+&kp TILDE &kp PLUS &kp LBKT &kp RBKT &kp PRCNT     &kp AT &kp COLON &kp COMMA &kp DOT &kp SQT
+                                     
+	 				    &lt 3 TAB  &lt 2 SPACE     &bspc_del  &lt 4 ESC
             >;
         };
 
@@ -137,13 +137,13 @@
             display-name = "Util Layer";
             bindings = <
         
- &none &kp HOME &kp PG_UP &kp C_BRI_UP &kp C_VOL_UP     &kp C_NEXT &kp F1 &kp F2 &kp F3 &kp F4
+&kp PSCRN &kp HOME &kp PG_UP &kp C_BRI_UP &kp C_VOL_UP     &kp C_NEXT &kp F1 &kp F2 &kp F3 &kp F4
 
-      &tdh_llc &tdh_dls &tdh_ula &tdh_rlg &kp C_MUTE     &kp C_PP &ht RGUI F5 &ht RALT F6 &ht RSHFT F7 &ht RCTRL F8
+        &tdh_llc &tdh_dls &tdh_ula &tdh_rlg &kp C_MUTE     &kp C_PP &ht RGUI F5 &ht RALT F6 &ht RSHFT F7 &ht RCTRL F8
 
-  &none &kp END &kp PG_DN &kp C_BRI_DN &kp C_VOL_DN     &kp C_PREV &kp F9 &kp F10 &kp F11 &kp F12
+     &none &kp END &kp PG_DN &kp C_BRI_DN &kp C_VOL_DN     &kp C_PREV &kp F9 &kp F10 &kp F11 &kp F12
 
-                                         &lt 3 TAB  &lt 2 SPACE        &bspc_del  &lt 4 ESC
+    					        &lt 3 TAB  &lt 2 SPACE     &bspc_del  &lt 4 ESC
             >;
         };
 
@@ -151,13 +151,13 @@ prog_layer {
             display-name = "Prog Layer";
             bindings = <
         
-            &btldr_h 0 0 &none &none &none &out OUT_USB   &bt BT_CLR &none &none &none &btldr_h 0 0
+        		     &btldr_h 0 0 &none &none &none &out OUT_USB     &bt BT_CLR &none &none &none &btldr_h 0 0
        
-      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &bt BT_DISC 4 &bt BT_DISC 3 &bt BT_DISC 2 &bt BT_DISC 1 &bt BT_DISC 0
+&bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &bt BT_DISC 4 &bt BT_DISC 3 &bt BT_DISC 2 &bt BT_DISC 1 &bt BT_DISC 0
        
-    	    &none &none &none &none &out OUT_BLE   &bt BT_CLR_ALL &none &none &none &none
+    	    		        &none &none &none &none &out OUT_BLE     &bt BT_CLR_ALL &none &none &none &none
         
-                                         &lt 3 TAB  &lt 2 SPACE        &bspc_del  &lt 4 ESC
+                                          &lt 3 TAB  &lt 2 SPACE     &bspc_del  &lt 4 ESC
             >;
         };
     };
